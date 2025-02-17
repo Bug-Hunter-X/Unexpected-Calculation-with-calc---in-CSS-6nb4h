@@ -1,0 +1,22 @@
+To solve this issue, ensure that the percentage and pixel values used in `calc()` are interpreted correctly by all target browsers.  One solution is to avoid mixing percentage and pixel values directly within the `calc()` function. Instead, consider using intermediate variables or alternative approaches. For example, you could calculate the pixel value beforehand using JavaScript or pre-processor directives (like Sass or Less) and then use this calculated value in your CSS.
+
+Here's an example demonstrating a workaround using JavaScript:
+
+```javascript
+const element = document.querySelector('.element');
+const viewportWidth = window.innerWidth;
+const elementWidth = viewportWidth * 0.5 - 10; //50% - 10px
+element.style.width = `${elementWidth}px`;
+```
+
+Alternatively, you could use a CSS preprocessor to perform the calculation before the CSS is compiled, ensuring that the browser receives a correctly calculated pixel value.
+
+```scss
+$elementWidth: 50% - 10px;
+
+.element {
+  width: $elementWidth;
+}
+```
+
+Remember to choose the solution that best fits your project's needs and development workflow.
