@@ -1,0 +1,9 @@
+The CSS property `calc()` is not working as expected when used with percentage values in some browsers. For example, the following code snippet might not produce the expected result:
+
+```css
+.element {
+  width: calc(50% - 10px);
+}
+```
+
+In some browsers, this may result in the element having a width of 0 or a different unexpected value. This is because some older browsers might not correctly calculate the value when percentages and pixels are used together in `calc()`.
